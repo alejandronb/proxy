@@ -25,10 +25,15 @@ elif opcion == "-d":
 				for linea in lineas:
 					fichero.write(linea)
 				fichero.close
-				#Aclarar un poco
+				#Comprobar funcionamiento
 	elif tipo == "-dom":
 		fichero = open("/etc/squid/domnegro.acl","r")
 		lineas = fichero.readlines()
 		fichero.close
 		for linea in lineas:
-			#Borrar dominio
+			if linea == contenido:
+				fichero.open("etc/squid3/urlnegro","w")
+				lineas.remove(contenido)
+				for linea in lineas:
+					fichero.write(linea)
+				fichero.close
