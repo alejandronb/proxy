@@ -19,10 +19,13 @@ elif opcion == "-d":
 		lineas = fichero.readlines()
 		fichero.close
 		for linea in lineas:
-			# if linea.find(contenido) == 0:
-			# 	fichero.open("etc/squid3/urlnegro","w")
-			# 	lineas.remove(linea)
-				#Falta borrar
+			if linea == contenido:
+				fichero.open("etc/squid3/urlnegro","w")
+				lineas.remove(contenido)
+				for linea in lineas:
+					fichero.write(linea)
+				fichero.close
+				#Aclarar un poco
 	elif tipo == "-dom":
 		fichero = open("/etc/squid/domnegro.acl","r")
 		lineas = fichero.readlines()
