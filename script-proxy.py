@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 
 opcion = sys.argv[1]
@@ -22,7 +23,7 @@ elif opcion == "-d":
 		fichero.close
 		for linea in lineas:
 			if linea == contenido:
-				fichero = open("/etc/squid3/urlnegro","w")
+				fichero = open("/etc/squid3/urlnegro.acl","w")
 				lineas.remove(contenido)
 				for linea in lineas:
 					fichero.write(linea)
@@ -35,7 +36,7 @@ elif opcion == "-d":
 		for linea in lineas:
 			if linea.find(contenido) == 0:
 				linea = ""
-				fichero = open("/etc/squid3/domnegro","w")
+				fichero = open("/etc/squid3/domnegro.acl","w")
 				for linea in lineas:
 					fichero.write(linea)
 				fichero.close
@@ -54,7 +55,7 @@ elif opcion == "-d":
 	# 	for linea in lineas:
 	# 		if linea == contenido:
 	# 			lineas.remove(contenido)
-	# 			fichero = open("/etc/squid3/domnegro","w")
+	# 			fichero = open("/etc/squid3/domnegro.acl","w")
 	# 			for linea in lineas:
 	# 				fichero.write(linea)
 	# 			fichero.close
