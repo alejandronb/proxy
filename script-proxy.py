@@ -28,7 +28,7 @@ elif opcion == "-d":
 				for linea in lineas:
 					fichero.write(linea)
 				fichero.close
-				#Comprobar funcionamiento
+				print "La url se ha borrado"
 	elif tipo == "-dom":
 		fichero = open("/etc/squid3/domnegro.acl","r")
 		lineas = fichero.readlines()
@@ -40,3 +40,4 @@ elif opcion == "-d":
 				for linea in lineas:
 					fichero.write(linea)
 				fichero.close
+				print "El dominio se ha borrado"
