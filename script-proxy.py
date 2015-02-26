@@ -15,7 +15,7 @@ if opcion == "-a":
 		fichero.close
 elif opcion == "-d":
 	if tipo == "-url":
-		fichero = open("/etc/squid3/urlnegro.acl","a")
+		fichero = open("/etc/squid3/urlnegro.acl","r")
 		lineas = fichero.readlines()
 		fichero.close
 		for linea in lineas:
