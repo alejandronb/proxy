@@ -22,7 +22,7 @@ elif opcion == "-d":
 		lineas = fichero.readlines()
 		fichero.close
 		for linea in lineas:
-			if linea == contenido:
+			if linea == contenido+"\n":
 				fichero = open("/etc/squid3/urlnegro.acl","w")
 				lineas.remove(contenido)
 				for linea in lineas:
@@ -34,28 +34,9 @@ elif opcion == "-d":
 		lineas = fichero.readlines()
 		fichero.close
 		for linea in lineas:
-			if linea.find(contenido) == 0:
-				linea = ""
+			if linea == contenido+"\n":
+				lineas.remove(contenido)
 				fichero = open("/etc/squid3/domnegro.acl","w")
 				for linea in lineas:
 					fichero.write(linea)
 				fichero.close
-
-
-
-
-
-
-
-
-	# elif tipo == "-dom":
-	# 	fichero = open("/etc/squid3/domnegro.acl","r")
-	# 	lineas = fichero.readlines()
-	# 	fichero.close
-	# 	for linea in lineas:
-	# 		if linea == contenido:
-	# 			lineas.remove(contenido)
-	# 			fichero = open("/etc/squid3/domnegro.acl","w")
-	# 			for linea in lineas:
-	# 				fichero.write(linea)
-	# 			fichero.close
