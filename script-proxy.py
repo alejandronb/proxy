@@ -6,7 +6,7 @@ contenido = sys.argv[3]
 
 if opcion == "-a":
 	if tipo == "-url":
-		fichero = open("etc/squid3/urlnegro.acl","a")
+		fichero = open("/etc/squid3/urlnegro.acl","a")
 		fichero.write(contenido+"\n")
 		fichero.close
 	elif tipo == "-dom":
@@ -20,7 +20,7 @@ elif opcion == "-d":
 		fichero.close
 		for linea in lineas:
 			if linea == contenido:
-				fichero.open("etc/squid3/urlnegro","w")
+				fichero.open("/etc/squid3/urlnegro","w")
 				lineas.remove(contenido)
 				for linea in lineas:
 					fichero.write(linea)
@@ -32,7 +32,7 @@ elif opcion == "-d":
 		fichero.close
 		for linea in lineas:
 			if linea == contenido:
-				fichero.open("etc/squid3/urlnegro","w")
+				fichero.open("/etc/squid3/domnegro","w")
 				lineas.remove(contenido)
 				for linea in lineas:
 					fichero.write(linea)
